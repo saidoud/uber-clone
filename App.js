@@ -1,14 +1,9 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import Home from "./app/screens/Home";
 
 export default function App() {
-  return (
-    <View>
-      <Text>Uber Clone</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <Home />;
 }
 
 const styles = StyleSheet.create({});

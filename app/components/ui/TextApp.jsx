@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Platform, StyleSheet, Text } from "react-native";
+import colors from "../../configs/colors";
 
 function TextApp({ children, style, ...otheProps }) {
   return (
@@ -11,7 +12,7 @@ function TextApp({ children, style, ...otheProps }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: color.black,
+    color: colors.black,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });
