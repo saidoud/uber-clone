@@ -13,7 +13,7 @@ function HomeMap() {
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: 250,
     backgroundColor: colors.purple,
   },
 });

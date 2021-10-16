@@ -3,9 +3,7 @@ import colors from "../../configs/colors";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     margin: 10,
-    backgroundColor: colors.grey,
   },
   // Input Box View
   viewBox: {
@@ -13,6 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
+    padding: 10,
+    backgroundColor: colors.grey,
   },
   box: {
     display: "flex",
@@ -25,12 +25,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textBox: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "500",
   },
 
   // Previous Destination View
-  previousDestination: {},
+  rowDestination: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.grey,
+  },
+  textDestination: {
+    fontSize: 16,
+    fontWeight: "500",
+    marginLeft: 10,
+  },
 
   // Home Destination View
   homeDestination: {},

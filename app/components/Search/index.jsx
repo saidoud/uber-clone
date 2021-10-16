@@ -1,9 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { AntDesign, MaterialIcons, Entypo } from "@expo/vector-icons";
 
 import TextApp from "../ui/TextApp";
 import styles from "./styles";
+import IconContainer from "../ui/IconContainer";
+import colors from "../../configs/colors";
 
 function Search() {
   return (
@@ -19,10 +21,24 @@ function Search() {
       </View>
 
       {/* Previous Destination */}
-      <View style={styles.previousDestination}></View>
+      <View style={styles.rowDestination}>
+        <IconContainer
+          Icon={() => (
+            <AntDesign name="clockcircle" size={20} color={colors.white} />
+          )}
+          bgColor={colors.darkGrey}
+        />
+        <TextApp style={styles.textDestination}>Spin Nightclub</TextApp>
+      </View>
 
       {/* Home Destination */}
-      <View style={styles.homeDestination}></View>
+      <View style={styles.rowDestination}>
+        <IconContainer
+          Icon={() => <Entypo name="home" size={20} color={colors.white} />}
+          bgColor={colors.primary}
+        />
+        <TextApp style={styles.textDestination}>Spin Nightclub</TextApp>
+      </View>
     </View>
   );
 }
