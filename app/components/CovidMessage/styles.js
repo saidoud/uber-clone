@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   more: {
     color: colors.white,
     fontSize: 15,
-    fontWeight: "bold",
+    fontWeight: "600",
   },
 });
 

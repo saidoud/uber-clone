@@ -6,7 +6,7 @@ export default {
   brown: "#99644C",
   orange: "#ED6E33",
   purple: "#7356BF",
-  grey: "#bed9ff",
+  grey: "#EDEEF2",
   black: "#000",
   white: "#fff",
 };
