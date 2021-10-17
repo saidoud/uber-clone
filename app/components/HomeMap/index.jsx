@@ -1,20 +1,32 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import colors from "../../configs/colors";
-import TextApp from "../ui/TextApp";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 function HomeMap() {
   return (
     <View style={styles.container}>
-      <TextApp>Here Uber Map</TextApp>
+      <MapView
+        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={styles.map}
+        region={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        }}
+      ></MapView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 250,
     backgroundColor: colors.purple,
+  },
+  map: {
+    height: "100%",
+    width: "100%",
   },
 });
 
