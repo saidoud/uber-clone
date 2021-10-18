@@ -1,15 +1,15 @@
 import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Screen from "../../components/ui/Screen";
-import HomeMap from "../../components/Map/HomeMap";
 import UberType from "../../components/UberType";
+import RouteMap from "../../components/Map/RouteMap";
 
 function SearchResult() {
   return (
     <Screen>
       <View style={styles.container}>
         <View style={styles.mapContainer}>
-          <HomeMap />
+          <RouteMap />
         </View>
         <View style={styles.typeContainer}>
           <UberType />

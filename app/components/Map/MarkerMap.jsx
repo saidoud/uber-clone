@@ -2,9 +2,9 @@ import React from "react";
 import { Image, StyleSheet } from "react-native";
 import { Marker } from "react-native-maps";
 
-function MarkerMap({ coordinate, image }) {
+function MarkerMap({ coordinate, image, title }) {
   return (
-    <Marker coordinate={coordinate}>
+    <Marker coordinate={coordinate} title={title}>
       <Image style={styles.markerImage} source={image} />
     </Marker>
   );
