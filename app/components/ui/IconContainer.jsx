@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import colors from "../../configs/colors";
 
 function IconContainer({ Icon, bgColor }) {
   return (

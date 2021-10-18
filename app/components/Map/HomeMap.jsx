@@ -36,6 +36,7 @@ function HomeMap() {
               longitude: item.longitude,
             }}
             image={getImage(item.type)}
+            heading={item.heading}
           />
         ))}
       </MapView>
