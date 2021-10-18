@@ -1,7 +1,7 @@
 import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Screen from "../../components/ui/Screen";
-import HomeMap from "../../components/HomeMap";
+import HomeMap from "../../components/Map/HomeMap";
 import UberType from "../../components/UberType";
 
 function SearchResult() {

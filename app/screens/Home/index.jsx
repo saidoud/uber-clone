@@ -1,23 +1,27 @@
 import React from "react";
 import Screen from "../../components/ui/Screen";
-import HomeMap from "../../components/HomeMap";
-import { StyleSheet } from "react-native";
+import HomeMap from "../../components/Map/HomeMap";
+import { Dimensions, StyleSheet, View } from "react-native";
 import CovidMessage from "../../components/CovidMessage";
 import Search from "../../components/Search";
 
 function Home() {
   return (
-    <Screen>
-      <HomeMap />
+    <View>
+      <View style={styles.mapContainer}>
+        <HomeMap />
+      </View>
       <CovidMessage title={TITLE} subTitle={SUBTITLE} />
       {/* Bottom Components */}
       <Search />
-    </Screen>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  mapContainer: {
+    height: Dimensions.get("window").height - 400,
+  },
 });
 
 const TITLE = "Travel only if necessary";
