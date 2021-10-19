@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import Screen from "../../components/ui/Screen";
@@ -18,11 +19,17 @@ const workPlace = {
 };
 
 function DestinationSearch() {
-  const [fromLocation, setFromLocation] = useState("");
-  const [destination, setDestination] = useState("");
-  const loacation = useLocation();
-  console.log("location");
-  console.log(loacation);
+  const [fromLocation, setFromLocation] = useState(null);
+  const [destination, setDestination] = useState(null);
+  useLocation();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    if (fromLocation && destination) {
+      console.log("clicked");
+      navigation.navigate("SearchResult");
+    }
+  }, [fromLocation, destination]);
 
   return (
     <Screen>
@@ -30,11 +37,10 @@ function DestinationSearch() {
         <GooglePlacesAutocomplete
           placeholder="Search"
           onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            console.log(data, details);
+            setFromLocation({ data, details });
           }}
           query={{
-            key: "API.API_KEY",
+            key: API.API_KEY,
             language: "en",
             components: "country:ma",
           }}
@@ -55,12 +61,11 @@ function DestinationSearch() {
         <GooglePlacesAutocomplete
           placeholder="Where To ?"
           onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            console.log(data, details);
+            setDestination({ data, details });
           }}
           onFail={(error) => console.log(error)}
           query={{
-            key: "API.API_KEY",
+            key: API.API_KEY,
             language: "en",
             components: "country:ma",
           }}
@@ -74,6 +79,7 @@ function DestinationSearch() {
             separator: styles.separator,
           }}
           renderRow={(data) => <PlaceItem data={data} />}
+          enablePoweredByContainer={false}
         />
         {/* Circle near Origin input */}
         <View style={styles.circle} />
