@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 import { AntDesign, MaterialIcons, Entypo } from "@expo/vector-icons";
 
 import TextApp from "../ui/TextApp";
@@ -8,17 +9,27 @@ import IconContainer from "../ui/IconContainer";
 import colors from "../../configs/colors";
 
 function Search() {
+  const navigation = useNavigation();
+
+  const handleSearch = () => {
+    navigation.navigate("DestinationSearch");
+  };
+
   return (
     <View style={styles.container}>
       {/* Input Box */}
-      <View style={styles.viewBox}>
+      <TouchableOpacity
+        style={styles.viewBox}
+        onPress={handleSearch}
+        activeOpacity={0.7}
+      >
         <TextApp style={styles.textBox}>Where To ?</TextApp>
         <View style={styles.box}>
           <AntDesign name="clockcircle" size={16} />
           <TextApp>Now</TextApp>
           <MaterialIcons name="keyboard-arrow-down" size={16} />
         </View>
-      </View>
+      </TouchableOpacity>
 
       {/* Previous Destination */}
       <View style={styles.rowDestination}>

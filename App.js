@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import DestinationSearch from "./app/screens/DestinationSearch";
-import Home from "./app/screens/Home";
-import SearchResult from "./app/screens/SearchResult";
-export default function App() {
-  return <DestinationSearch />;
-}
+import { NavigationContainer } from "@react-navigation/native";
+import AppNavigator from "./app/navigation/AppNavigator";
 
-const styles = StyleSheet.create({});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
+}

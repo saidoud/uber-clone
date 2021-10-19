@@ -13,7 +13,9 @@ function useLocation() {
         coords: { latitude, longitude },
       } = await Location.getLastKnownPositionAsync();
       setLocation({ latitude, longitude });
-    } catch (error) {}
+    } catch (error) {
+      alert("location needed");
+    }
   };
   useEffect(() => {
     getLocation();

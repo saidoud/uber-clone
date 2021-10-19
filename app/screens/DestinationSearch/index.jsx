@@ -20,7 +20,9 @@ const workPlace = {
 function DestinationSearch() {
   const [fromLocation, setFromLocation] = useState("");
   const [destination, setDestination] = useState("");
-  useLocation();
+  const loacation = useLocation();
+  console.log("location");
+  console.log(loacation);
 
   return (
     <Screen>
