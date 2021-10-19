@@ -6,10 +6,21 @@ import Screen from "../../components/ui/Screen";
 import styles from "./styles";
 import API from "../../configs/api";
 import PlaceItem from "../../components/list/PlaceItem";
+import useLocation from "../../hooks/useLocation";
+
+const homePlace = {
+  description: "Home",
+  geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
+};
+const workPlace = {
+  description: "Work",
+  geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
+};
 
 function DestinationSearch() {
   const [fromLocation, setFromLocation] = useState("");
   const [destination, setDestination] = useState("");
+  useLocation();
 
   return (
     <Screen>
@@ -21,7 +32,7 @@ function DestinationSearch() {
             console.log(data, details);
           }}
           query={{
-            key: API.API_KEY,
+            key: "API.API_KEY",
             language: "en",
             components: "country:ma",
           }}
@@ -33,7 +44,11 @@ function DestinationSearch() {
             separator: styles.separator,
           }}
           renderRow={(data) => <PlaceItem data={data} />}
+          renderDescription={(data) => data.description || data.vicinity}
           enablePoweredByContainer={false}
+          currentLocation={true}
+          currentLocationLabel="Current location"
+          predefinedPlaces={[homePlace, workPlace]}
         />
         <GooglePlacesAutocomplete
           placeholder="Where To ?"
@@ -43,7 +58,7 @@ function DestinationSearch() {
           }}
           onFail={(error) => console.log(error)}
           query={{
-            key: API.API_KEY,
+            key: "API.API_KEY",
             language: "en",
             components: "country:ma",
           }}
@@ -57,7 +72,6 @@ function DestinationSearch() {
             separator: styles.separator,
           }}
           renderRow={(data) => <PlaceItem data={data} />}
-          enablePoweredByContainer={false}
         />
         {/* Circle near Origin input */}
         <View style={styles.circle} />

@@ -7,19 +7,24 @@ import IconContainer from "../ui/IconContainer";
 import colors from "../../configs/colors";
 
 function PlaceItem({ data }) {
+  const getIcon = (description) => {
+    if (description === "Home")
+      return <Entypo name="home" siz={24} color={colors.white} />;
+    if (description === "Work")
+      return <Entypo name="suitcase" size={14} color={colors.white} />;
+    return <Entypo name="location-pin" siz={24} color={colors.white} />;
+  };
   return (
     <View style={styles.container}>
       <IconContainer
-        bgColor={colors.darkGrey}
-        Icon={() =>
-          data.description === "Home" ? (
-            <Entypo name="home" siz={20} color={colors.white} />
-          ) : (
-            <Entypo name="location-pin" siz={20} color={colors.white} />
-          )
+        bgColor={
+          data.description === "Home" || data.description === "Work"
+            ? colors.primary
+            : colors.darkGrey
         }
+        Icon={() => getIcon(data.description)}
       />
-      <TextApp style={styles.text}>{data.description}</TextApp>
+      <TextApp style={styles.text}>{data.description || data.vicinity}</TextApp>
     </View>
   );
 }

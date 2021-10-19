@@ -3,6 +3,8 @@ import * as Location from "expo-location";
 
 function useLocation() {
   const [location, setLocation] = useState();
+  Location.installWebGeolocationPolyfill();
+  navigator.geolocation.getCurrentPosition();
   const getLocation = async () => {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
