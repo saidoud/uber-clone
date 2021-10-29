@@ -21,8 +21,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.soft.uberclone",
+      "googleServicesFile": "./google-services.json"
     },
+    "plugins": ["@react-native-firebase/app"],
     "web": {
       "favicon": "./app/assets/favicon.png"
     }
